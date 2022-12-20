@@ -30,10 +30,7 @@
         },
         "psr-0": {
             "": "extend/"
-        },
-        "files": [
-            "src/helper.php"
-        ]
+        }
     },
     "config": {
         "preferred-install": "dist"
