@@ -16,7 +16,7 @@ class ResponseJson {
             "code" => ErrorNums::SUCCESS,
             "msg" => $msg,
             "data" => $data,
-            "request_id" => "123"
+            "request_id" => SnowFlakeUtil::getInstance()->getCurrentId()
         ];
         return json($data);
     }
