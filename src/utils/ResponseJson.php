@@ -33,7 +33,7 @@ class ResponseJson {
             "code" => $code,
             "msg" => $msg ?: ErrorNums::getInstance()->getMessage($code),
             "data" => $data,
-            "request_id" => ""
+            "request_id" => SnowFlakeUtil::getInstance()->getCurrentId()
         ];
         return json($data);
     }
