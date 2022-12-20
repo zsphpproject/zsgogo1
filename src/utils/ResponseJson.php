@@ -3,6 +3,7 @@
 namespace ZsGoGo\utils;
 
 use app\common\ErrorNums;
+use think\Response;
 use think\response\Json;
 
 class ResponseJson {
@@ -36,5 +37,20 @@ class ResponseJson {
             "request_id" => SnowFlakeUtil::getInstance()->getCurrentId()
         ];
         return json($data);
+    }
+
+
+    /**
+     * @param int $code
+     * @param string $msg
+     * @param $statusCode
+     * @return Response
+     */
+    public static function error(int $code = ErrorNums::SYS_ERROR,string $msg = "",$statusCode = 400){
+        return Response::create([
+            "code" => ErrorNums::Unauthorized,
+            "message" => $msg,
+            "request_id" => SnowFlakeUtil::getInstance()->getCurrentId()
+        ],"json",$statusCode);
     }
 }
