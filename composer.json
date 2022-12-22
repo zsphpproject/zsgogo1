@@ -1,7 +1,7 @@
 {
     "name": "topthink/think",
     "description": "the new thinkphp framework",
-    "type": "project",
+    "type": "library",
     "homepage": "https://www.thinkphp.cn/",
     "license": "Apache-2.0",
     "authors": [
