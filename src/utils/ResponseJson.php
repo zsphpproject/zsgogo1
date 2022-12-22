@@ -16,8 +16,8 @@ class ResponseJson {
         $data = [
             "code" => ErrorNums::SUCCESS,
             "msg" => $msg,
-            "data" => $data,
-            "request_id" => SnowFlakeUtil::getInstance()->getCurrentId()
+            "request_id" => SnowFlakeUtil::getInstance()->getCurrentId(),
+            "data" => $data
         ];
         return json($data);
     }
@@ -33,8 +33,8 @@ class ResponseJson {
         $data = [
             "code" => $code,
             "msg" => $msg ?: ErrorNums::getInstance()->getMessage($code),
-            "data" => $data,
-            "request_id" => SnowFlakeUtil::getInstance()->getCurrentId()
+            "request_id" => SnowFlakeUtil::getInstance()->getCurrentId(),
+            "data" => $data
         ];
         return json($data);
     }
@@ -43,13 +43,13 @@ class ResponseJson {
     /**
      * @param int $code
      * @param string $msg
-     * @param $statusCode
+     * @param int $statusCode
      * @return Response
      */
-    public static function error(int $code = ErrorNums::SYS_ERROR,string $msg = "",$statusCode = 400){
+    public static function error(int $code = ErrorNums::SYS_ERROR, string $msg = "", int $statusCode = 400): Response {
         return Response::create([
             "code" => ErrorNums::Unauthorized,
-            "message" => $msg,
+            "msg" => $msg,
             "request_id" => SnowFlakeUtil::getInstance()->getCurrentId()
         ],"json",$statusCode);
     }
