@@ -17,7 +17,8 @@
         "topthink/think-filesystem": "^1.0",
         "topthink/think-multi-app": "^1.0",
         "godruoyi/php-snowflake": "^2.1",
-        "ext-json": "*"
+        "ext-json": "*",
+        "ext-openssl": "*"
     },
     "require-dev": {
         "symfony/var-dumper": "^4.2",
