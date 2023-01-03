@@ -18,7 +18,7 @@ class SnowFlakeUtil {
         $snowflake = new Snowflake($this->datacenterId,$this->workId);
         $id = $snowflake->id();
         $this->currentId = Date("Ymd").$id;
-        return $id;
+        return $this->currentId;
     }
 
     public function setCurrentId(string $currentId){
