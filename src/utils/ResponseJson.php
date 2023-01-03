@@ -50,7 +50,8 @@ class ResponseJson {
         return Response::create([
             "code" => ErrorNums::Unauthorized,
             "msg" => $msg,
-            "request_id" => SnowFlakeUtil::getInstance()->getCurrentId()
+            "request_id" => SnowFlakeUtil::getInstance()->getCurrentId(),
+            "data" => null
         ],"json",$statusCode);
     }
 }
