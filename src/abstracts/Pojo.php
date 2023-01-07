@@ -4,7 +4,6 @@ declare(strict_types=1);
 namespace ZsGoGo\abstracts;
 
 use think\contract\Arrayable;
-use think\Exception;
 use think\helper\Str;
 use ReflectionClass;
 use ReflectionProperty;
@@ -13,9 +12,7 @@ use ZsGoGo\constant\ErrorNums;
 use ZsGoGo\exception\PojoException;
 
 
-/**
- *
- */
+
 abstract class Pojo implements Arrayable {
 
 
@@ -59,9 +56,11 @@ abstract class Pojo implements Arrayable {
         if (empty($param)) {
             $inputData = $request->getInput();
             $inputData = $this->fitterData(json_decode($inputData, true) ?? []);
+            if ($request->method() == "GET") $inputData = array_merge($inputData,$request->get());
         } else {
             $inputData = $param;
         }
+
         $this->reflectionClass = new ReflectionClass($this);
         $this->setData($inputData);
         if ($this->autoValidate) {
