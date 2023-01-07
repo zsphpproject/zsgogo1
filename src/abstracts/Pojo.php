@@ -56,7 +56,13 @@ abstract class Pojo implements Arrayable {
         if (empty($param)) {
             $inputData = $request->getInput();
             $inputData = $this->fitterData(json_decode($inputData, true) ?? []);
-            if ($request->method() == "GET") $inputData = array_merge($inputData,$request->get());
+            if ($request->method() == "GET") {
+                $getArray = $request->get();
+                foreach ($getArray as $key => $value){
+                    if ($value == "") unset($getArray[$key]);
+                }
+                $inputData = array_merge($inputData,$getArray);
+            }
         } else {
             $inputData = $param;
         }
