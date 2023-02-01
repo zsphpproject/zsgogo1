@@ -14,6 +14,13 @@ class SnowFlakeUtil {
 
     protected $currentId = "";
 
+
+    private function __construct() {}
+
+    private function __clone() {}
+
+
+
     public function createId(): string {
         $snowflake = new Snowflake($this->datacenterId,$this->workId);
         $id = $snowflake->id();
