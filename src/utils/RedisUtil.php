@@ -72,6 +72,11 @@ class RedisUtil {
         return $this->redis->lrange($key,$start,$end);
     }
 
+    public function llen(string $key) :int {
+        return $this->redis->llen($key);
+    }
+
+
 
     /**
      * 无序集合set相关操作
@@ -98,5 +103,6 @@ class RedisUtil {
     public function sismember(string $key,string $value) :bool {
         return $this->redis->sismember($key,$value);
     }
+
 
 }
